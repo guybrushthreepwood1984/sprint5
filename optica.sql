@@ -4,13 +4,13 @@ USE optica;
 
 CREATE TABLE suppliers (
  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
- `name` VARCHAR(100) NOT NULL,
- street VARCHAR(100) NOT NULL,
+ supplier_name TEXT NOT NULL,
+ street TEXT NOT NULL,
  street_number VARCHAR(30) NOT NULL,
  floor VARCHAR(30),
  door VARCHAR(30),
- city VARCHAR(100) NOT NULL,
- country VARCHAR(100) NOT NULL,
+ city TEXT NOT NULL,
+ country VARCHAR(60) NOT NULL,
  phone_number VARCHAR(30),
  fax_number VARCHAR(30) DEFAULT NULL,
  tax_identification_number VARCHAR(40) NOT NULL
@@ -36,13 +36,13 @@ CREATE TABLE glasses (
 
 CREATE TABLE customers (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(100) NOT NULL,
-    street VARCHAR(100) NOT NULL,
+    customer_name TEXT NOT NULL,
+    street TEXT NOT NULL,
     street_number VARCHAR(30) NOT NULL,
     floor VARCHAR(30),
     door VARCHAR(30),
     city VARCHAR(100) NOT NULL,
-    country VARCHAR(100) NOT NULL,
+    country VARCHAR(60) NOT NULL,
     phone_number VARCHAR(30),
     email VARCHAR(100),
     registration_date DATE NOT NULL
@@ -59,7 +59,7 @@ CREATE TABLE recommendations (
 
 CREATE TABLE employees (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(100) NOT NULL
+    employee_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE sales (
@@ -73,4 +73,16 @@ CREATE TABLE sales (
     FOREIGN KEY (glasses_sold) REFERENCES glasses(id)
 );
 
-INSERT INTO suppliers (`name`, street, street_number, floor, door, city, country, phone_number, fax_number, tax_identification_number) VALUES ("firstSupplier", "C/Mallorca", "123", "bj", "1a", "Barcelona", "España", "654321123", NULL, "A3212321");
+INSERT INTO suppliers (supplier_name, street, street_number, floor, door, city, country, phone_number, fax_number, tax_identification_number) VALUES ("firstSupplier", "C/Mallorca", "123", "bj", "1a", "Barcelona", "España", "654321123", NULL, "A3212321");
+
+INSERT INTO suppliers (supplier_name, street, street_number, floor, door, city, country, phone_number, fax_number, tax_identification_number) VALUES ("secondSupplier", "C/Valencia", "456", "1º", "2a", "Barcelona", "España", "123456789", NULL, "B123456");
+
+INSERT INTO suppliers (supplier_name, street, street_number, floor, door, city, country, phone_number, fax_number, tax_identification_number) VALUES ("thirdSupplier", "C/Aragon", "789", "2º", "2a", "Barcelona", "España", "987654321", NULL, "C987654");
+
+INSERT INTO glasses (brand, supplied_by, left_eye_graduation, left_eye_degree, right_eye_graduation, right_eye_degree, frame_type, frame_color, left_glass_color, right_glass_color, price) VALUES ("Rayban", 1, 0.7, 90, 1.2, 110,"floating", "blue", "pink", "pink", 93);
+
+INSERT INTO glasses (brand, supplied_by, left_eye_graduation, left_eye_degree, right_eye_graduation, right_eye_degree, frame_type, frame_color, left_glass_color, right_glass_color, price) VALUES ("Tom Ford", 2, 0.8, 10, 1.3, 120,"paste", "green", "transparent", "transparent", 103);
+
+INSERT INTO customers (customer_name, street, street_number, floor, door, city, country, phone_number, email) VALUES ("John", "Mulberry", 20, "2º", "3ª", "New York", "Gringolandia", "123456", "john@fakemail.com");
+
+--update supplier_name customer_name insert Tom Ford insert customer
