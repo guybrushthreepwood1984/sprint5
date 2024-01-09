@@ -16,7 +16,7 @@ CREATE TABLE suppliers (
  tax_identification_number VARCHAR(40) NOT NULL
 );
 
-CREATE INDEX idx_supplier_name ON suppliers (name);
+CREATE INDEX idx_supplier_name ON suppliers (supplier_name(100));
 
 CREATE TABLE glasses (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -83,6 +83,19 @@ INSERT INTO glasses (brand, supplied_by, left_eye_graduation, left_eye_degree, r
 
 INSERT INTO glasses (brand, supplied_by, left_eye_graduation, left_eye_degree, right_eye_graduation, right_eye_degree, frame_type, frame_color, left_glass_color, right_glass_color, price) VALUES ("Tom Ford", 2, 0.8, 10, 1.3, 120,"paste", "green", "transparent", "transparent", 103);
 
-INSERT INTO customers (customer_name, street, street_number, floor, door, city, country, phone_number, email) VALUES ("John", "Mulberry", 20, "2º", "3ª", "New York", "Gringolandia", "123456", "john@fakemail.com");
+INSERT INTO customers (customer_name, street, street_number, floor, door, city, country, phone_number, email, registration_date) VALUES ("John Gotti", "Mulberry Street", 20, "2º", "3ª", "New York", "Gringolandia", "123456", "john@fakemail.com", "2024-01-09");
 
---update supplier_name customer_name insert Tom Ford insert customer
+INSERT INTO customers (customer_name, street, street_number, floor, door, city, country, phone_number, email, registration_date) VALUES ("Carlo Corleone", "Houston Street", 20, "2º", "3ª", "New York", "Gringolandia", "654321", "carlo@fakemail.com", "2024-01-09");
+
+INSERT INTO employees (employee_name) VALUES ("Rio Rodriguez");
+
+INSERT INTO sales (glasses_sold, sold_by, sold_to, sale_date) VALUES (1, 1, 1, "2024-01-09");
+
+INSERT INTO recommendations(new_customer, recommended_by) VALUES (1, 2);
+
+
+--SELECT customers.customer_name, glasses.brand, sales.sale_date FROM sales JOIN customers ON customers.id = sales.sold_to JOIN glasses ON glasses.id = sales.glasses_sold
+
+--SELECT employees.employee_name, glasses.brand FROM employees JOIN sales ON employees.id = sales.sold_by JOIN glasses ON glasses.id = sales.glasses_sold;
+
+--TODO Insert suppliers
