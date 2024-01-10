@@ -1,3 +1,5 @@
+USE tienda
+
 SELECT * FROM producto;
 SELECT * FROM fabricante;
 -- TODO: 1. Llista el nom de tots els productes que hi ha en la taula producto.
@@ -30,7 +32,7 @@ SELECT nombre FROM fabricante ORDER BY nombre;
 SELECT nombre FROM fabricante ORDER BY nombre DESC;
 -- TODO: 15. Llista els noms dels productes ordenats, en primer lloc, pel nom de manera ascendent i, en segon lloc, pel preu de manera descendent.
 SELECT nombre, precio FROM producto ORDER BY nombre ASC, precio DESC;
--- ! Not sure if query 15 makes any sense. Should we inlcude another column in result?
+-- ! Not sure if query 15 makes any sense. Should we include another column in result?
 -- TODO: 16. Retorna una llista amb les 5 primeres files de la taula fabricante.
 SELECT * FROM fabricante LIMIT 5;
 -- TODO: 17. Retorna una llista amb 2 files a partir de la quarta fila de la taula fabricante. La quarta fila també s'ha d'incloure en la resposta.
