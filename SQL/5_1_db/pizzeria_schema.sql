@@ -29,7 +29,7 @@ CREATE TABLE store (
 
 CREATE TABLE orders (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    ordered_by INT UNSIGNED,
+    ordered_by INT(10) UNSIGNED,
     order_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     delivery_or_pick_up ENUM ("Delivery", "Pick up"),
     total_price DECIMAL(10, 2) UNSIGNED,
