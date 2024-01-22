@@ -1,0 +1,17 @@
+{
+  "brand_name": "string",
+  "frame": "string",
+  "provider_ID": "objectId",
+  "price": "double",
+  "bought_by": [
+    {
+      "customer_ID": "objectId"
+    },
+    {
+      "customer_ID": "objectId"
+    },
+    {
+      "customer_ID": "objectId"
+    }
+  ]
+}

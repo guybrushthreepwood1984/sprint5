@@ -1,0 +1,19 @@
+{
+  "firstName": "string",
+  "secondName": "string",
+  "address": "string",
+  "phone_number": "string",
+  "email": "string",
+  "register_date": "date",
+  "last_shoppings": [
+    {
+      "brand": "string",
+      "prescription_left_eye": "double",
+      "prescription_right_eye": "double",
+      "glass_color_left_eye": "string",
+      "glass_color_right_eye": "string",
+      "frame_type": "string",
+      "price": "double"
+    }
+  ]
+}

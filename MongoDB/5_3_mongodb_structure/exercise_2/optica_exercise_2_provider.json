@@ -1,0 +1,13 @@
+{
+  "provider_name": "string",
+  "address": {
+    "street": "string",
+    "number": "string",
+    "floor": "string",
+    "door_number": "string",
+    "zip_code": "number",
+    "city": "string",
+    "country": "string"
+  },
+  "tax_identification_number": "string"
+}
