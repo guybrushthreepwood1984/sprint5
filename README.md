@@ -49,7 +49,8 @@ ER-diagram in SQL created with: https://app.quickdatabasediagrams.com/#/
 
 ### 5_3: Òptica
 
-"exercise_1" and "exercise_2"
+"exercise_1" and "exercise_2" based on screenshots provided in respective folders.
+
 "optica_structure" based on the following requirements:
 
     Una òptica, anomenada “Cul d'Ampolla”, vol informatitzar la gestió dels clients/es i vendes d'ulleres.
