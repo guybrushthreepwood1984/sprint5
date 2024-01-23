@@ -34,9 +34,7 @@ SELECT pe.nombre, pe.apellido1, pe.apellido2 FROM persona pe JOIN profesor pr ON
 --TODO Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
 SELECT a.nombre AS asignatura FROM asignatura a WHERE id_profesor IS NULL;
 --TODO Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
-
---! Nochmal überarbeiten
-SELECT d.nombre FROM departamento d LEFT JOIN profesor pr ON d.id = pr.id_departamento LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor JOIN alumno_se_matricula_asignatura am ON a.id = am.id_asignatura JOIN curso_escolar ON am.id_curso_escolar = curso_escolar.id WHERE a.id_profesor IS NULL AND anyo_inicio IS NULL AND anyo_fin IS NULL;
+SELECT d.nombre FROM departamento d LEFT JOIN profesor pr ON d.id = pr.id_departamento LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor LEFT JOIN alumno_se_matricula_asignatura am ON a.id = am.id_asignatura LEFT JOIN curso_escolar ce ON am.id_curso_escolar = ce.id WHERE a.id_profesor IS NULL AND anyo_inicio IS NULL AND anyo_fin IS NULL;
 
 --? Consultes resum
 
@@ -60,6 +58,6 @@ SELECT ce.anyo_inicio `Año inicio`, SUM(am.id_alumno) AS `número alumnos matri
 SELECT pr.id_profesor, pe.nombre, pe.apellido1, pe.apellido2, COUNT(a.id) `número asignaturas`FROM profesor pr LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor JOIN persona pe ON pe.id = pr.id_profesor GROUP BY pr.id_profesor, pe.nombre, pe.apellido1, pe.apellido2 ORDER BY `número asignaturas` DESC; 
 --TODO Retorna totes les dades de l'alumne/a més jove.
 SELECT * FROM persona WHERE tipo = "alumno" ORDER BY fecha_nacimiento ASC LIMIT 1; 
---SELECT * FROM persona WHERE tipo = "alumno" AND fecha_nacimiento = (SELECT MIN(fecha_nacimiento) FROM persona WHERE tipo = "alumno");
+-- Alternative: SELECT * FROM persona WHERE tipo = "alumno" AND fecha_nacimiento = (SELECT MIN(fecha_nacimiento) FROM persona WHERE tipo = "alumno");
 --TODO Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura.
---! Nochmal überarbeiten: SELECT * FROM persona pe JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor WHERE pe.tipo = "profesor" AND pr.id_departamento IS NOT NULL AND a.id_profesor IS NULL; 
+SELECT * FROM persona pe JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor WHERE pe.tipo = "profesor" AND pr.id_departamento IS NOT NULL AND a.id_profesor IS NULL; 
