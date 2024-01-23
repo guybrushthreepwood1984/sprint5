@@ -49,6 +49,7 @@ ER-diagram in SQL created with: https://app.quickdatabasediagrams.com/#/
 
 ### 5_3: Òptica
 
+"exercise_1" and "exercise_2"
 "optica_structure" based on the following requirements:
 
     Una òptica, anomenada “Cul d'Ampolla”, vol informatitzar la gestió dels clients/es i vendes d'ulleres.
@@ -64,3 +65,5 @@ ER-diagram in SQL created with: https://app.quickdatabasediagrams.com/#/
 ER-diagram in MongoDB created with: https://app.diagrams.net/
 
 ### 5_4: Practicing queries on provided database restaurants
+
+Queries executable via playground in MongoDB-extention of VS Code.
